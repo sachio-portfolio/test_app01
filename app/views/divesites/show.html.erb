@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>
+    <%= @divesite.area %> ＞
+    <%= @divesite.zone %> ＞
+    <h2><%= @divesite.name %></h2>
+</p>
+  </strong>
+  <p>詳細: <%= @divesite.discription %></p>
+  <p>所在地: <%= @divesite.adress %></p>
+  ☎︎: <%= link_to "#{@divesite.phone}", "tel:#{@divesite.phone.delete("-")}" %>
+  <p>サービス: <%= @divesite.service %></p>
+
+<%= link_to 'Edit', edit_divesite_path(@divesite) %> |
+<%= link_to 'Back', divesites_path %>

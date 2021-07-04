@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Divesites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @divesites.each do |divesite| %>
+      <tr>
+        <td><%= divesite.name %></td>
+        <td><%= link_to 'Show', divesite %></td>
+        <td><%= link_to 'Edit', edit_divesite_path(divesite) %></td>
+        <td><%= link_to 'Destroy', divesite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Divesite', new_divesite_path %>
