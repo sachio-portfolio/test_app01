@@ -1,16 +1,31 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>
     <%= @divesite.area %> ＞
     <%= @divesite.zone %> ＞
     <h2><%= @divesite.name %></h2>
-</p>
   </strong>
+</p>
+<div id="js-copytext">
   <p>詳細: <%= @divesite.discription %></p>
   <p>所在地: <%= @divesite.adress %></p>
-  ☎︎: <%= link_to "#{@divesite.phone}", "tel:#{@divesite.phone.delete("-")}" %>
+  <p id="telephone">☎︎: <%= link_to "#{@divesite.phone}", "tel:#{@divesite.phone.delete("-")}" %></p>
   <p>サービス: <%= @divesite.service %></p>
+</div>
+<button type="button" id="js-copybtn">海況情報をコピー！</button>
+<p id="js-copyalert" class="copy_alert">コピーできました！このままtwitterにも投稿しよう！！</p>
+
+<script src="divesite.js"></script>
 
 <%= link_to 'Edit', edit_divesite_path(@divesite) %> |
 <%= link_to 'Back', divesites_path %>
+
+<%= link_to 'Twitterに投稿', "https://twitter.com/share?url=#{request.url}/&text=ポイント名:#{@divesite.name}%0A海況:#{@divesite.discription}", title: 'Twitter', target: '_blank' %>
+
+<%= link_to 'Twitterに投稿', "https://twitter.com/intent/tweet?text=ポイント名: #{@divesite.name}%0A海況: #{@divesite.discription}%0A#{request.url}", title: 'Twitter', target: '_blank' %>
+
+
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="こんにちは！" data-url="#{request.url}" data-hashtags="Diving" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

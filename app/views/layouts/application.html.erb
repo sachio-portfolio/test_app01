@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <header>
+        <%= link_to 'ダイブサイト一覧', divesites_path %>
+        <%= link_to '投稿一覧', posts_path %>
+        <%= link_to 'ログイン', new_user_session_path %>
+        <%= link_to 'サインアップ', new_user_registration_path %>
+    </header>
+    <div class="flash_messages">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

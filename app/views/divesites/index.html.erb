@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Divesites</h1>
 
@@ -18,6 +18,8 @@
         <td><%= link_to 'Edit', edit_divesite_path(divesite) %></td>
         <td><%= link_to 'Destroy', divesite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+
+      <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}c=ポイント名:#{divesite.name}\n海況:#{divesite.discription}", title: 'Twitter', target: '_blank' %>
     <% end %>
   </tbody>
 </table>

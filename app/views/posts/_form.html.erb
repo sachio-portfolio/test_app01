@@ -10,10 +10,38 @@
       </ul>
     </div>
   <% end %>
-
+  <p>本日の海況</p>
+  <!-- <div class="field">
+    <%= form.hidden_field :date, value: Date.current %>
+  </div> -->
+  <div class="field">
+    <%= form.hidden_field :divesite_id, value: current_user.home.id %>
+  </div>
   <div class="field">
     <%= form.label :divepoint %>
     <%= form.text_field :divepoint %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.radio_button :status, :open, checked: true %>
+    <%= form.label :status, "OPEN", class: "status_label" %>
+    <%= form.radio_button :status, :close %>
+    <%= form.label :status, "CLOSE", class: "status_label" %>
+    <%= form.radio_button :status, :caution %>
+    <%= form.label :status, "潜水注意", class: "status_label" %>
+  </div>
+  <div class="field">
+    <%= form.label :temp %>
+    <%= form.number_field :temp, value: "25" %><span> ℃</span>
+  </div>
+  <div class="field">
+    <%= form.label :visibility %>
+    <%= form.number_field :visibility, value: "10" %><span> m</span>
+  </div>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
   </div>
 
   <div class="actions">
